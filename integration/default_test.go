@@ -41,7 +41,7 @@ func testDefault(t *testing.T, context spec.G, it spec.S) {
 		var err error
 		image, _, err = pack.WithNoColor().Build.
 			WithNoPull().
-			WithBuildpacks(pythonRuntimeBuildpack, buildpack).
+			WithBuildpacks(buildpack).
 			Execute(name, filepath.Join("testdata", "simple-start"))
 		Expect(err).ToNot(HaveOccurred())
 

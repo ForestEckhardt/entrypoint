@@ -14,8 +14,7 @@ import (
 )
 
 var (
-	buildpack              string
-	pythonRuntimeBuildpack string
+	buildpack string
 )
 
 func TestIntegration(t *testing.T) {
@@ -30,9 +29,9 @@ func TestIntegration(t *testing.T) {
 	// HACK: we need to fix dagger and the package.sh scripts so that this isn't required
 	buildpack = fmt.Sprintf("%s.tgz", buildpack)
 
-	// defer func() {
-	// 	Expect(dagger.DeleteBuildpack(buildpack)).To(Succeed())
-	// }()
+	defer func() {
+		Expect(dagger.DeleteBuildpack(buildpack)).To(Succeed())
+	}()
 
 	SetDefaultEventuallyTimeout(10 * time.Second)
 
