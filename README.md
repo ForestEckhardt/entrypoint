@@ -23,4 +23,4 @@ args = ["<arguments>"]
 direct = false
 ```
 
-If you are looking for concrete definitions on what these fields do inside of `packit` you can check the documentation [here](https://godoc.org/github.com/paketo-buildpacks/packit#Process). For the definition from the Cloud Native Buildpack specification itself you can check out the documentation [here](https://github.com/buildpacks/spec/blob/master/buildpack.md#launchtoml-toml)
+If you are looking for concrete definitions on what these fields do inside of `packit` you can check the documentation [here](https://godoc.org/github.com/paketo-buildpacks/packit#Process). For the definition from the Cloud Native Buildpack specification itself you can check out the documentation [here](https://github.com/buildpacks/spec/blob/master/buildpack.md#launchtoml-toml).
