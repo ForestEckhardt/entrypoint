@@ -55,9 +55,8 @@ function main() {
         #use jam
         util::tools::jam::install --directory "${BUILDPACKDIR}/.bin"
         if [[ -z "${version:-}" ]]; then #version not provided, use latest git tag
-            # git_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
-            # version=${git_tag:1}
-            version="0.0.0"
+            git_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+            version=${git_tag:1}
         fi
 
         extra_args=""

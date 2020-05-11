@@ -19,7 +19,7 @@ function main() {
         util::print::warn "** WARNING  No Integration tests **"
     fi
 
-    # tools::install
+    tools::install
     images::pull
     token::fetch
     tests::run
@@ -48,7 +48,7 @@ function images::pull() {
     docker pull "${CNB_RUN_IMAGE:=gcr.io/paketo-buildpacks/run:full-cnb-cf}"
 
     util::print::title "Pulling cflinuxfs3 builder image..."
-    docker pull "${CNB_BUILDER_IMAGE:=cloudfoundry/cnb:cflinuxfs3}"
+    docker pull "${CNB_BUILDER_IMAGE:=gcr.io/paketo-buildpacks/builder:cflinuxfs3}"
 
     export CNB_BUILD_IMAGE
     export CNB_RUN_IMAGE
@@ -66,7 +66,7 @@ function token::fetch() {
 function tests::run() {
     util::print::title "Run Buildpack Runtime Integration Tests"
     pushd "${BUILDPACKDIR}" > /dev/null
-        if GOMAXPROCS=4 go test -timeout 0 ./integration/... -v -mod=vendor -run Integration; then
+        if GOMAXPROCS=4 go test -timeout 0 ./integration/... -v -run Integration; then
             util::print::success "** GO Test Succeeded **"
         else
             util::print::error "** GO Test Failed **"
