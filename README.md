@@ -1,6 +1,6 @@
 # Entrypoint Cloud Native Buildpack
 
-This buildpack is meant to be used at the end of the buildpack order definition and will write a start command that is generated from the contents of an `entrypoint.toml` in the base of the application directory. The `entrypoint.toml` is meant to reflect the contents of `launch.toml` that is currently supported by `packit`.
+This buildpack is meant to be used at the end of the buildpack order definition and will write a start command that is generated from the contents of an `entrypoint.toml` in the base of the application directory. The `entrypoint.toml` is meant to reflect the contents of [`launch.toml`](https://github.com/buildpacks/spec/blob/master/buildpack.md#launchtoml-toml) that is currently supported by `packit`.
 
 ## Usage
 
