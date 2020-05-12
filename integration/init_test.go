@@ -6,16 +6,14 @@ import (
 	"time"
 
 	"github.com/cloudfoundry/dagger"
-	"github.com/cloudfoundry/occam"
+	"github.com/paketo-buildpacks/occam"
 	"github.com/sclevine/spec"
 	"github.com/sclevine/spec/report"
 
 	. "github.com/onsi/gomega"
 )
 
-var (
-	buildpack string
-)
+var buildpack string
 
 func TestIntegration(t *testing.T) {
 	Expect := NewWithT(t).Expect

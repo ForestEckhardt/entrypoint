@@ -14,15 +14,6 @@ func Detect() packit.DetectFunc {
 			return packit.DetectResult{}, packit.Fail
 		}
 
-		return packit.DetectResult{
-			Plan: packit.BuildPlan{
-				Provides: []packit.BuildPlanProvision{
-					{Name: "entrypoint"},
-				},
-				Requires: []packit.BuildPlanRequirement{
-					{Name: "entrypoint"},
-				},
-			},
-		}, nil
+		return packit.DetectResult{}, nil
 	}
 }

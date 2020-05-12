@@ -40,21 +40,12 @@ func testDetect(t *testing.T, context spec.G, it spec.S) {
 			Expect(ioutil.WriteFile(filepath.Join(workingDir, "entrypoint.toml"), []byte(``), 0644)).To(Succeed())
 		})
 
-		it("returns a plan that provides and requires entrypoint", func() {
+		it("passes detection", func() {
 			result, err := detect(packit.DetectContext{
 				WorkingDir: workingDir,
 			})
 			Expect(err).NotTo(HaveOccurred())
-			Expect(result.Plan).To(Equal(packit.BuildPlan{
-				Provides: []packit.BuildPlanProvision{
-					{Name: "entrypoint"},
-				},
-				Requires: []packit.BuildPlanRequirement{
-					{
-						Name: "entrypoint",
-					},
-				},
-			}))
+			Expect(result.Plan).To(Equal(packit.BuildPlan{}))
 		})
 	})
 
