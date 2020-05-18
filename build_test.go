@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/ForestEckhardt/entrypoint/fakes"
-	"github.com/cloudfoundry/packit"
+	"github.com/paketo-buildpacks/packit"
 	"github.com/sclevine/spec"
 
 	main "github.com/ForestEckhardt/entrypoint"
