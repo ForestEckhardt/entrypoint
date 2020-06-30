@@ -1,4 +1,4 @@
-package main_test
+package entrypoint_test
 
 import (
 	"io/ioutil"
@@ -6,9 +6,8 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/ForestEckhardt/entrypoint"
 	"github.com/paketo-buildpacks/packit"
-
-	main "github.com/ForestEckhardt/entrypoint"
 
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/spec"
@@ -19,7 +18,7 @@ func testEntrypointTOMLParser(t *testing.T, context spec.G, it spec.S) {
 		Expect     = NewWithT(t).Expect
 		workingDir string
 
-		entrypointTOMLParser main.EntrypointTOMLParser
+		entrypointTOMLParser entrypoint.EntrypointTOMLParser
 	)
 
 	it.Before(func() {
@@ -27,7 +26,7 @@ func testEntrypointTOMLParser(t *testing.T, context spec.G, it spec.S) {
 		workingDir, err = ioutil.TempDir("", "working-dir")
 		Expect(err).NotTo(HaveOccurred())
 
-		entrypointTOMLParser = main.NewEntrypointTOMLParser()
+		entrypointTOMLParser = entrypoint.NewEntrypointTOMLParser()
 	})
 
 	it.After(func() {

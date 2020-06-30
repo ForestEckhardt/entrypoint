@@ -1,4 +1,4 @@
-package main_test
+package entrypoint_test
 
 import (
 	"io/ioutil"
@@ -6,10 +6,9 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/ForestEckhardt/entrypoint"
 	"github.com/paketo-buildpacks/packit"
 	"github.com/sclevine/spec"
-
-	main "github.com/ForestEckhardt/entrypoint"
 
 	. "github.com/onsi/gomega"
 )
@@ -28,7 +27,7 @@ func testDetect(t *testing.T, context spec.G, it spec.S) {
 		workingDir, err = ioutil.TempDir("", "workingDir")
 		Expect(err).NotTo(HaveOccurred())
 
-		detect = main.Detect()
+		detect = entrypoint.Detect()
 	})
 
 	it.After(func() {

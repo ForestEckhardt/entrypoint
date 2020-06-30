@@ -1,4 +1,4 @@
-package main_test
+package entrypoint_test
 
 import (
 	"errors"
@@ -9,7 +9,7 @@ import (
 	"github.com/paketo-buildpacks/packit"
 	"github.com/sclevine/spec"
 
-	main "github.com/ForestEckhardt/entrypoint"
+	"github.com/ForestEckhardt/entrypoint"
 
 	. "github.com/onsi/gomega"
 )
@@ -26,7 +26,7 @@ func testBuild(t *testing.T, context spec.G, it spec.S) {
 	it.Before(func() {
 		entrypointParser = &fakes.EntrypointParser{}
 
-		build = main.Build(entrypointParser)
+		build = entrypoint.Build(entrypointParser)
 	})
 
 	context("there is an entrypoint.toml in the app dir", func() {
